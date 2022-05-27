@@ -1,4 +1,4 @@
-package com.training.db_pry.model.data.entity
+package com.training.db_pry.data.entity
 
 import androidx.room.TypeConverter
 import java.util.*

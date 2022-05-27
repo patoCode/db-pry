@@ -1,4 +1,4 @@
-package com.training.db_pry.model.data
+package com.training.db_pry.core
 
 import android.content.Context
 

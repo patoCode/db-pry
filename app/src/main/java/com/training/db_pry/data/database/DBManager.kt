@@ -1,25 +1,26 @@
-package com.training.db_pry.model.data
+package com.training.db_pry.data.database
 
 import android.content.Context
 import androidx.room.*
-import com.training.db_pry.model.data.dao.MettingDao
-import com.training.db_pry.model.data.entity.Converters
-import com.training.db_pry.model.data.entity.Metting
+import com.training.db_pry.data.database.dao.MeetingDao
+import com.training.db_pry.data.entity.Converters
+import com.training.db_pry.data.entity.Meeting
+
 
 @Database(
-    entities = [Metting::class],
+    entities = [Meeting::class],
     version = 1
 )
 @TypeConverters(Converters::class)
 abstract class DBManager : RoomDatabase(){
 
-    abstract fun mettingDao():MettingDao
+    abstract fun meetingDao():MeetingDao
 
     companion object{
 
-        var INSTANCE:DBManager? = null
+        var INSTANCE: DBManager? = null
 
-        fun getAppDB(context : Context):DBManager?{
+        fun getAppDB(context : Context): DBManager?{
             if(INSTANCE == null){
                 synchronized(DBManager::class){
                     INSTANCE = Room.databaseBuilder(context.applicationContext, DBManager::class.java,"MettingDB").allowMainThreadQueries().build()
